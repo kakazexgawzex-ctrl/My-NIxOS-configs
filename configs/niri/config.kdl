@@ -1,0 +1,80 @@
+spawn-at-startup "noctalia"
+
+prefer-no-csd
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+cursor {
+    xcursor-theme "Nordzy-cursors-white"
+    xcursor-size 24
+}
+
+layout {
+    focus-ring {
+        off
+    }
+}
+
+binds {
+    Mod+T { spawn "foot"; }
+    Mod+Shift+T { toggle-window-floating; }
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Q { close-window; }
+
+    // Workspaces
+    Mod+WheelScrollUp { focus-workspace "up"; }
+    Mod+WheelScrollDown { focus-workspace "down"; }
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Print { screenshot; }
+    Shift+Print { screenshot-window; }
+
+    // Media keys
+    F6 { spawn-sh "noctalia msg media previous"; }
+    XF86AudioPrev { spawn-sh "noctalia msg media previous"; }
+    F7 { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioPlay { spawn-sh "noctalia msg media toggle"; }
+    F8 { spawn-sh "noctalia msg media next"; }
+    XF86AudioNext { spawn-sh "noctalia msg media next"; }
+
+    // Volume
+    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="^foot$"
+    draw-border-with-background false
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+}
+
+window-rule {
+    match app-id="^dev\\.noctalia\\.Noctalia$"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+include "noctalia.kdl"
