@@ -1,0 +1,44 @@
+# Applications installed on the system.
+{ pkgs, anifetch-pkg, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    htop
+    fastfetch
+    tree
+    unzip
+    unrar
+    thunar
+    p7zip
+    mpv
+    gamemode
+    ripgrep
+    fd
+    eza
+    fzf
+    ccache
+    lavat
+    xwayland-satellite
+    equibop
+    foot
+    varia
+    evtest
+    playerctl
+    xdg-user-dirs
+    imv
+    gpu-screen-recorder
+    micro
+    wineWow64Packages.staging
+    winetricks
+    icoutils
+    chafa
+    ffmpeg
+    anifetch-pkg
+    intel-gpu-tools
+    pciutils
+    usbutils
+    dmidecode
+    libva-utils
+  ];
+}
